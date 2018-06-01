@@ -7,6 +7,7 @@ import { Injectable, Injector, EventEmitter } from '@angular/core';
 import { HttpEvent, HttpInterceptor, HttpHandler, HttpRequest } from '@angular/common/http';
 import { InterceptorRequestUrl } from './requests/interceptor-request-url';
 import { InterceptorFailHttpErrorFailed } from './fails/interceptor-fail-http-error-failed';
+import { throttle } from 'rxjs/operators';
 
 
 @Injectable()
@@ -116,13 +117,10 @@ export class XCHttpInterceptor implements HttpInterceptor {
    * @param error
    */
   public emitError(error: any) {
-    try {
-      this.lastError = error;
-      this.isConnectAlive = false;
-      this.errorEmitter.next(error);
-    } catch (e) {
-      // Do Nothing
-    }
+    this.lastError = error;
+    this.isConnectAlive = false;
+    this.errorEmitter.next(error);
+    throw error;
   }
 
 

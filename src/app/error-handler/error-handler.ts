@@ -3,12 +3,18 @@ import { ToastrService } from 'ngx-toastr';
 import { environment } from '../../environments/environment';
 
 @Injectable()
+/**
+ * custom error handler
+ */
 export class XCErrorHandler extends ErrorHandler {
 
   constructor(@Inject(Injector) private injector: Injector) {
     super();
   }
 
+  /**
+   * get toastr service
+   */
   private get toastrService(): ToastrService {
     return this.injector.get(ToastrService);
   }

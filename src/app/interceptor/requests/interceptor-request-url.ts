@@ -13,7 +13,7 @@ export class InterceptorRequestUrl extends Interceptor.Request {
   }
 
   treat(oHttpRequest: HttpRequest<any>): HttpRequest<any> {
-    return this.createHttpRequest(oHttpRequest, this.TrataUrl(oHttpRequest.url), oHttpRequest.body)
+    return this.createHttpRequest(oHttpRequest, this.TrataUrl(oHttpRequest.url), oHttpRequest.body);
   }
 
   private TrataUrl(url: string): string {

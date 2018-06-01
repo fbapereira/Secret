@@ -38,6 +38,10 @@ export class MainService {
       });
   }
 
+  /**
+   * Get data from response
+   * @param obj response
+   */
   private getData(obj: any): boolean {
     // Validating data - We never know whats we got :)
     if (!obj ||
@@ -47,30 +51,37 @@ export class MainService {
       return false;
     }
 
+    // process each category
     obj._embedded.game_categories.forEach((element: any) => {
-      const oCategory = this.getCategory(element)
+      const oCategory = this.getCategory(element);
       if (oCategory) {
         this.lstCategory.push(oCategory);
       }
     });
+
     return true;
-
-
   }
 
+  /**
+   * Map category object
+   * @param obj
+   */
   private getCategory(obj: any): Category {
 
+    // get data
     const oCategory: Category = new Category();
     oCategory.name = obj.name;
     oCategory.order = obj.order;
     oCategory.slug = obj.slug;
     oCategory.games = [];
 
+    // validate games at strcuture
     if (!obj._embedded ||
       !obj._embedded.games) {
       return undefined;
     }
 
+    // Get games
     obj._embedded.games.forEach((element: any) => {
       oCategory.games.push(this.getGame(element));
     });
@@ -78,16 +89,26 @@ export class MainService {
     return oCategory;
   }
 
+  // Map game object
   private getGame(obj: any): Game {
+
     const oGame: Game = new Game();
     oGame.background = obj.background;
-    oGame.description_long = obj.meta.description_long;
     oGame.id = obj.id;
     oGame.name = obj.name;
     oGame.thumbnail = obj.thumbnail;
     oGame.vendor = obj.vendor;
-    oGame.creation = obj.created_at.date;
     oGame.rating = obj.rating;
+
+    if (obj.created_at && obj.created_at.date) {
+      oGame.creation = obj.created_at.date;
+    }
+
+    if (obj.meta && obj.meta.description_long) {
+      oGame.description_long = obj.meta.description_long;
+    }
+
     return oGame;
+
   }
 }

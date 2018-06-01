@@ -1,11 +1,11 @@
-import { Component, OnInit, Input, OnChanges, ViewChild } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
 import 'rxjs/add/operator/map';
-import { Category } from "../../models/category.model";
-import { Game } from "../../models/game.model";
-import { MainService } from "../../services/main.service";
-import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
-import { Router } from "@angular/router";
+import { Category } from '../../models/category.model';
+import { Component, OnInit, Input, OnChanges, ViewChild } from '@angular/core';
+import { Game } from '../../models/game.model';
+import { HttpClient } from '@angular/common/http';
+import { MainService } from '../../services/main.service';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-detail-component',
@@ -13,28 +13,46 @@ import { Router } from "@angular/router";
   styleUrls: ['game-detail.component.scss']
 })
 
+/**
+ * show the details of the game
+ */
 export class GameDetailComponent {
+  /**
+   * target game
+   */
   game: Game;
-  @ViewChild('content') content: any;
-  closeResult: string;
 
-  constructor(private modalService: NgbModal,
+  /**
+   * modal
+   */
+  @ViewChild('content') content: any;
+
+  constructor(
+    private modalService: NgbModal,
     private router: Router) { }
 
+  /**
+   * Open modal with details
+   * @param game
+   */
   viewGame(game: Game): void {
     this.game = game;
     this.modalService.open(this.content).result.then((result) => { });
   }
 
-
+  /**
+   * Get game description
+   */
   getDescription(): string {
+    // You know... description are despised :,()
     if (!this.game.description_long) { return 'No description'; }
     return this.game.description_long;
   }
 
+  /**
+   * Navigate to the play screen
+   */
   navigateTo(): void {
-    debugger;
     this.router.navigate(['/play'], { queryParams: { game: this.game.id } });
   }
-
 }
