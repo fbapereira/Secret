@@ -37,7 +37,12 @@ export class GameDetailComponent {
    */
   viewGame(game: Game): void {
     this.game = game;
-    this.modalService.open(this.content).result.then((result) => { });
+    this.modalService.open(this.content).result.then((result) => {
+      // nothing to do here
+    },
+      (e) => {
+        // nothing to do here Too:)
+      });
   }
 
   /**
