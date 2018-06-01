@@ -1,7 +1,7 @@
 import { Category } from './models/category.model';
 import { Component } from '@angular/core';
 import { MainService } from './services/main.service';
-import { NavbarComponent } from './components/navbar-component/navbar-component';
+import { MenuComponent } from './components/menu-component/menu-component';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({

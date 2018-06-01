@@ -3,7 +3,7 @@ import { GameDetailComponent } from '../components/game-detail-component/game-de
 import { GamesComponent } from '../components/games-component/games.component';
 import { HomeComponent } from '../components/home-component/home.component';
 import { LateralMenuComponent } from '../components/lateral-menu-component/lateral-menu.component';
-import { NavbarComponent } from '../components/navbar-component/navbar-component';
+import { MenuComponent } from '../components/menu-component/menu-component';
 import { PlayComponent } from '../components/play-component/play.component';
 import { SearchComponent } from '../components/search-component/search.component';
 import { StarComponent } from '../components/star-component/star.component';
@@ -17,7 +17,7 @@ export const COMPONENTS: any = [
   GamesComponent,
   HomeComponent,
   LateralMenuComponent,
-  NavbarComponent,
+  MenuComponent,
   PlayComponent,
   SearchComponent,
   StarComponent,

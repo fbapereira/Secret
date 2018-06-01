@@ -3,15 +3,15 @@ import { MainService } from '../../services/main.service';
 import { LateralMenuComponent } from '../lateral-menu-component/lateral-menu.component';
 
 @Component({
-  selector: 'app-navbar-component',
-  templateUrl: './navbar-component.html',
-  styleUrls: ['navbar-component.scss']
+  selector: 'app-menu-component',
+  templateUrl: './menu-component.html',
+  styleUrls: ['menu-component.scss']
 })
 
 /**
  * Menu component
  */
-export class NavbarComponent {
+export class MenuComponent {
 
   constructor(private mainService: MainService) { }
 
