@@ -1,0 +1,25 @@
+/* You can add global styles to this file, and also import other style files */
+
+// https://www.huesnap.com/palette/-LD72RoFPb7NOGxyZ_El
+@import "node_modules/bootstrap/scss/bootstrap";
+$category-color-1: #5D7EA4;
+$category-color-2: #965E98;
+$category-color-3: #F79C91;
+$category-color-4: #B0D66D;
+$category-color-5: #F4C258;
+$category-color-6: #71A7D6;
+$category-color-7: #D671A7;
+$category-color-8: #71D6A0;
+.category-title {
+  vertical-align: middle;
+  font-size: 1rem;
+  line-height: 3rem;
+  border-bottom: 1px solid #DDD;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.category-title>small {
+  font-size: 0.75rem;
+  cursor: pointer;
+}

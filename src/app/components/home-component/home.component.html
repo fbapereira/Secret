@@ -1,0 +1,9 @@
+<div *ngFor="let category of mainService.lstCategory">
+  <div *ngIf="category">
+    <p class="category-title">{{category.name}}
+      <small (click)="navigateTo(category)"> VER MAIS</small>
+    </p>
+    <app-games-component [category]="category" [maxGames]="3">
+    </app-games-component>
+  </div>
+</div>

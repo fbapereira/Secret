@@ -1,0 +1,19 @@
+.background-fix {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+}
+
+body {
+  background-color: black;
+}
+
+.iframe-fix {
+  top: 0;
+  left: 0;
+  width: 100%;
+  position: fixed;
+  height: 100%;
+}
