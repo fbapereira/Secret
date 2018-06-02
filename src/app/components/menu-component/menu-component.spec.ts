@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import { Router, ActivatedRoute, RouterModule } from '@angular/router';
 import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 import { MenuComponent } from './menu-component';
+import { FormsModule } from '@angular/forms';
 
 describe('MenuComponent', function () {
   let fixture: ComponentFixture<MenuComponent>;
@@ -23,7 +24,7 @@ describe('MenuComponent', function () {
       imports: [
 
         RouterModule.forRoot([]),
-      ],
+        FormsModule],
       providers: [
         { provide: ActivatedRoute, useValue: mock_ActivatedRoute },
         { provide: Router, useValue: mock_Router },

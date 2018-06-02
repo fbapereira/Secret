@@ -38,6 +38,7 @@ export class SearchComponent {
   }
 
   search(): void {
+    debugger;
     if (!this.sSearch ||
       this.sSearch.length === 0) {
       this.filteredGames = this.games;
