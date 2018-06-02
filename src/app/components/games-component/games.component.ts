@@ -43,6 +43,8 @@ export class GamesComponent implements OnChanges {
   constructor(private router: Router) { }
 
   ngOnChanges(): void {
+    if (!this.category || !this.category.games) { return; }
+
     // filter games
     this.games = this.category.games.filter((x) => {
       return x.background &&

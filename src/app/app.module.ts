@@ -10,6 +10,7 @@ import { ROUTES } from './static/routes';
 import { RouterModule, Routes } from '@angular/router';
 import { SERVICES } from './static/services';
 import { ToastrModule } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { ToastrModule } from 'ngx-toastr';
     COMPONENTS
   ],
   imports: [
+    FormsModule,
     BrowserAnimationsModule,
     BrowserModule,
     HttpClientModule,

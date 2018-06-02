@@ -1,5 +1,12 @@
-<form class="form-inline">
-  <input *ngIf="isSearchButtonVisible" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-  <!-- <button class="btn btn-outline-success my-2 my-sm-0" >Search</button> -->
-</form>
-<i (click)="changeView()" class="fas fa-microphone" style="color: #FFF"></i>
+<div class="row">
+  <div class="col-sm-9  col-md-6  col-lg-6">
+    <input type="text" class="form-control" [(ngModel)]="sSearch" placeholder="Type anything to search" (ngModelChange)="search() ">
+  </div>
+</div>
+
+<p class="category-title" id="title">
+  Results
+</p>
+
+<app-games-component [category]="category">
+</app-games-component>
